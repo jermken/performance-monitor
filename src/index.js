@@ -6,6 +6,7 @@ import renderPanel from './panel.js'
 let noop = () => {}
 export const getPerformanceTiming = () => {
     let t = performance.timing
+    console.log('性能sdk timing', t)
     let times = {}
     // 页面加载完成的时间，用户等待页面可用的时间
     times.loadPage = t.loadEventEnd - t.navigationStart

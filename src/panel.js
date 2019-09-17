@@ -35,11 +35,10 @@ export default function renderPanel(id) {
                     clearInterval(this.timer)
                     this.timer = setInterval(()=>{
                     this.init()
+                    this.drawEntries()
                     },10000)
-                    setTimeout(()=>{
                     this.init()
                     this.drawEntries()
-                    },1000)
                     this.startMemoryWatcher()
                     setTimeout(() => {
                         document.getElementById('performanceBody').className = 'performance-transition'
