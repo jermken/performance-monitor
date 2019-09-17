@@ -98167,7 +98167,6 @@ var noop$4 = function noop() {};
 
 var getPerformanceTiming = function getPerformanceTiming() {
   var t = performance.timing;
-  console.log('性能sdk timing', t);
   var times = {}; // 页面加载完成的时间，用户等待页面可用的时间
 
   times.loadPage = t.loadEventEnd - t.navigationStart; // 解析 DOM 树结构的时间
@@ -98235,13 +98234,15 @@ function fedPerformance() {
     return console.warn('当前浏览器不支持 performance 接口');
   }
 
-  var times = getPerformanceTiming();
-  var entries = getPerformanceEntry();
-  var data = {
-    times: times,
-    entries: entries
-  };
-  cb(data);
+  setTimeout(function () {
+    var times = getPerformanceTiming();
+    var entries = getPerformanceEntry();
+    var data = {
+      times: times,
+      entries: entries
+    };
+    cb(data);
+  }, 500);
 }
 
 if (window && window.performance) {

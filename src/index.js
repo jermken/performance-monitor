@@ -6,7 +6,6 @@ import renderPanel from './panel.js'
 let noop = () => {}
 export const getPerformanceTiming = () => {
     let t = performance.timing
-    console.log('性能sdk timing', t)
     let times = {}
     // 页面加载完成的时间，用户等待页面可用的时间
     times.loadPage = t.loadEventEnd - t.navigationStart
@@ -82,10 +81,12 @@ export default function fedPerformance(cb = noop) {
     if(!window.performance) {
         return console.warn('当前浏览器不支持 performance 接口')
     }
-    let times = getPerformanceTiming()
-    let entries = getPerformanceEntry()
-    let data = { times,entries }
-    cb(data)
+    setTimeout(() => {
+        let times = getPerformanceTiming()
+        let entries = getPerformanceEntry()
+        let data = { times,entries }
+        cb(data)
+    }, 500)
 }
 
 if (window && window.performance) {
