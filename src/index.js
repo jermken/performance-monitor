@@ -78,22 +78,30 @@ export const renderPerformancePanel = () => {
 }
 
 export default function fedPerformance(cb = noop) {
-    if(!window.performance) {
-        return console.warn('当前浏览器不支持 performance 接口')
+    try{
+        if(!window.performance) {
+            return console.warn('当前浏览器不支持 performance 接口')
+        }
+        setTimeout(() => {
+            let times = getPerformanceTiming()
+            let entries = getPerformanceEntry()
+            let data = { times,entries }
+            cb(data)
+        }, 500)
+    } catch(e) {
+        console.warn('performanceData error:', e)
     }
-    setTimeout(() => {
-        let times = getPerformanceTiming()
-        let entries = getPerformanceEntry()
-        let data = { times,entries }
-        cb(data)
-    }, 500)
 }
 
 if (window && window.performance) {
     window.addEventListener('load', () => {
         // 判断是否是打开开发模式
-        if (location && location.href.includes('feperformance=true')) {
-            renderPerformancePanel()
+        try{
+            if (location && location.href.includes('feperformance=true')) {
+                renderPerformancePanel()
+            }
+        } catch(e){
+            console.warn('performancePanel error:', e)
         }
     })
 }

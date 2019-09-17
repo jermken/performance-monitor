@@ -282,12 +282,12 @@ export default function renderPanel(id) {
                     <div id="performanceBody" class="performance-body" style="transition: all 1s;box-shadow: -8px 0 20px #ccc;position:fixed;z-index:10000;top:0;background:#f1f1f1;bottom:0; width:1000px;overflow-y:scroll;">
                         <div id="echartMain" style="width:100%;">
                             <div style="background:#fff;margin-bottom:20px;padding:20px;">
-                                <h3>内存使用情况</h3>
+                                <h3 style="font-size:24px;font-weight:bold;">内存使用情况</h3>
                                 <div id="main" style="width:100%;height:600px;"></div>
                             </div>
                             
                             <div style="background:#fff;margin-bottom:20px;padding:20px;">
-                                <h3>页面加载详情（单位：毫秒）</h3>
+                                <h3 style="font-size:24px;font-weight:bold;">页面加载详情（单位：毫秒）</h3>
                                 <p style="display:inline-block;width:49%;"><label>准备新页面耗时：</label>  <span style="color:#409eff;">{{timing.fetchStart - timing.navigationStart}} </span></p>
                                 <p style="display:inline-block;width:49%;"><label>重定向时间：</label>  <span style="color:#409eff;">{{timing.redirectEnd - timing.redirectStart}} </span></p>
                                 <p style="display:inline-block;width:49%;"><label>App Cache时间：</label> <span style="color:#409eff;">{{timing.domainLookupStart - timing.fetchStart}}</span></p>
@@ -302,7 +302,7 @@ export default function renderPanel(id) {
                             </div>
 
                             <div style="background:#fff;margin-bottom:20px;padding:20px;">
-                                <h3>资源加载详情(单位:毫秒)</h3>
+                                <h3 style="font-size:24px;font-weight:bold;">资源加载详情(单位:毫秒)</h3>
                                 <div :id="'resource_'+resource.type" v-for="resource in entries" :key="resource.type" style="width:100%;height:600px;"></div>
                             </div>
                         </div>
