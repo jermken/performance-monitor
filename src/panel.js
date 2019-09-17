@@ -280,7 +280,7 @@ export default function renderPanel(id) {
                     }
                 },
                 template: `
-                    <div id="performanceBody" class="performance-body" style="transition: all 1s;box-shadow: -8px 0 20px #ccc;position:fixed;top:0;background:#f1f1f1;bottom:0; width:1000px;overflow-y:scroll;">
+                    <div id="performanceBody" class="performance-body" style="transition: all 1s;box-shadow: -8px 0 20px #ccc;position:fixed;z-index:10000;top:0;background:#f1f1f1;bottom:0; width:1000px;overflow-y:scroll;">
                         <div id="echartMain" style="width:100%;">
                             <div style="background:#fff;margin-bottom:20px;padding:20px;">
                                 <h3>内存使用情况</h3>

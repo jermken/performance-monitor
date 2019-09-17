@@ -3,7 +3,6 @@ import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
 
-console.log(process.env.NODE_ENV)
 export default {
     input: './src/index.js',
     output: [{

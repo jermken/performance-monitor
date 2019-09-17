@@ -62,7 +62,7 @@ export const renderPerformancePanel = () => {
             <div id="echartContainer">
                 
             </div>
-            <div id="showPerformanceBtn" style="cursor:pointer;line-height:30px;position:fixed;bottom:20px;right:20px;background:green;color:#fff;font-size:16px;font-weight:bold;">性能面板</div>
+            <div id="showPerformanceBtn" style="cursor:pointer;line-height:30px;z-index:10001;position:fixed;bottom:20px;right:20px;background:limegreen;color:#fff;padding:0 12px;border-radius:20px;box-shadow:-2px 2px 5px #ccc;font-size:14px;font-weight:bold;">性能面板</div>
         </div>
     `
     let panelDom = new DOMParser().parseFromString(template, 'text/html').querySelector('#performancePanel')
@@ -90,7 +90,7 @@ export default function fedPerformance(cb = noop) {
 if (window && window.performance) {
     window.addEventListener('load', () => {
         // 判断是否是打开开发模式
-        if (location && location.search.indexOf('feperformance=true') > -1) {
+        if (location && location.href.includes('feperformance=true')) {
             renderPerformancePanel()
         }
     })
