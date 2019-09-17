@@ -1,0 +1,39 @@
+{
+  "name": "@jermken/performance-monitor",
+  "version": "0.1.0",
+  "description": "a front end performance library",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development rollup --watch --config rollup.config.js",
+    "dev": "cross-env NODE_ENV=development rollup --watch --config rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup --config rollup.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jermken/performance-monitor.git"
+  },
+  "keywords": [
+    "performance",
+    "fe"
+  ],
+  "author": "jermken",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jermken/performance-monitor/issues"
+  },
+  "homepage": "https://github.com/jermken/performance-monitor#readme",
+  "dependencies": {
+    "echarts": "^4.2.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "cross-env": "^5.2.1",
+    "rollup": "^1.20.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-uglify": "^6.0.3"
+  }
+}
